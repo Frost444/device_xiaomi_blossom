@@ -68,6 +68,7 @@ void vendor_load_properties()
         heaptargetutilization = "0.5";
         heapminfree = "8m";
         heapmaxfree = "32m";
+        property_override("ro.config.art_lowmem", "true");
     } else if (sys.totalram > 3072ull * 1024 * 1024) {
         // from - phone-xxhdpi-4096-dalvik-heap.mk
         heapstartsize = "8m";
