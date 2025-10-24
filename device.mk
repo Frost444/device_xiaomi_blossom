@@ -27,13 +27,14 @@ include $(LOCAL_PATH)/vendor_logtag.mk
 # Shipping API Level
 PRODUCT_SHIPPING_API_LEVEL := 29
 
-# Always preopt extracted APKs to prevent extracting out of the APK
-# for gms modules.
+# Use a profile based boot image for this device. Note that this is currently a
+# generic profile and not Android Go optimized.
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
-PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/boot/boot-image-profile.txt
 PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
+PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := \
+    frameworks/base/boot/boot-image-profile.txt \
+    frameworks/base/boot/boot-image-profile-extra.txt
 USE_DEX2OAT_DEBUG := false
-WITH_DEXPREOPT_DEBUG_INFO := false
 DONT_DEXPREOPT_PREBUILTS := true
 
 # Do not generate libartd.
@@ -44,19 +45,30 @@ PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 # leave less information available via JDWP.
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
+# Disable Scudo outside of eng builds to save RAM.
+PRODUCT_DISABLE_SCUDO := true
+
+# Dedupe VNDK libraries with identical core variants.
+TARGET_VNDK_USE_CORE_VARIANT := true
+
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 
-# Preopt critical applications
+# Dexpreopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Launcher3QuickStep \
+    SystemUIGoogle \
+    SystemUI \
     Settings \
-    SystemUI
+    TrebuchetQuickStep
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1600
 TARGET_SCREEN_WIDTH := 720
 TARGET_BOOT_ANIMATION_RES := 720
 TARGET_BOOTANIMATION_HALF_RES := true
+
+PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
 # Screen density
 PRODUCT_AAPT_CONFIG := xhdpi
