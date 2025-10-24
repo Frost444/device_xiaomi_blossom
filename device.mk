@@ -309,7 +309,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.pixel-libperfmgr \
+    android.hardware.power-service.lineage-libperfmgr \
     android.hardware.power@1.0.vendor \
     android.hardware.power@1.1.vendor \
     android.hardware.power@1.2.vendor \
@@ -533,8 +533,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/mediatek \
+    hardware/lineage/interfaces/power-libperfmgr \
     hardware/mediatek/libmtkperf_client \
-    $(LOCAL_PATH)/power-libperfmgr \
     $(LOCAL_PATH)
 
 # Runtime Resource Overlays
