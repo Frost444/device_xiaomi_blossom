@@ -15,23 +15,19 @@ $(call inherit-product, device/xiaomi/blossom/device.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/alpha/config/common_full_phone.mk)
 
+<<<<<<< Updated upstream:alpha_blossom.mk
 scr_resolution := 720
 TARGET_SUPPORTS_BLUR := true
 TARGET_ENABLE_BLUR := true
+=======
+TARGET_BOOT_ANIMATION_RES := 720
+TARGET_SUPPORTS_BLUR := false
+TARGET_ENABLE_BLUR := false
+>>>>>>> Stashed changes:lineage_blossom.mk
 
-PRODUCT_NAME := alpha_blossom
+PRODUCT_NAME := lineage_blossom
 PRODUCT_DEVICE := blossom
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Redmi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
-
-PERF_ANIM_OVERRIDE := true
-# Maintainer
-ALPHA_BUILD_TYPE := Unofficial
-ALPHA_MAINTAINER := Jayed
-# TARGET_BUILD_PACKAGE options:
-# 1 - vanilla (default)
-# 2 - microg
-# 3 - gapps
-TARGET_BUILD_PACKAGE := 1
