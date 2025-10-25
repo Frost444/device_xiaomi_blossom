@@ -13,11 +13,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 $(call inherit-product, device/xiaomi/blossom/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/alpha/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-scr_resolution := 720
-TARGET_SUPPORTS_BLUR := true
-TARGET_ENABLE_BLUR := true
+TARGET_BOOT_ANIMATION_RES := 720
+TARGET_SUPPORTS_BLUR := false
+TARGET_ENABLE_BLUR := false
 
 PRODUCT_NAME := lineage_blossom
 PRODUCT_DEVICE := blossom
