@@ -305,13 +305,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libmtkperf_client_vendor \
-<<<<<<< Updated upstream
-    libmtkperf_client
-=======
     libmtkperf_client \
     libpowerhalwrap_vendor \
     pixel-power-ext-V1-ndk.vendor
->>>>>>> Stashed changes
 
 PRODUCT_PACKAGES += \
     vendor.mediatek.hardware.mtkpower@1.2-service.stub \
